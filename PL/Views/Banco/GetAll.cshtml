@@ -1,0 +1,43 @@
+﻿@model ML.Banco
+
+<h4>Lista de Bancos</h4>
+
+
+
+@Html.ActionLink("Agregar", "Form", "Banco", null, new { @class="btn btn-outline-success" })
+@using (Html.BeginForm("Agregar", "Banco", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Editar</th>
+                <th>IdBanco</th>
+                <th>NoEmpleados</th>
+                <th>NoSucursales</th>
+                <th>IdPais</th>
+                <th>Capital</th>
+                <th>IdRazonSocial</th>
+                <th>NoClientes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @foreach (ML.Banco banco in Model.Bancos)
+                {
+                <tr>
+                    <td>Editar</td>
+                    <td>@banco.IdBanco</td>
+                    <td>@banco.NoEmpleados</td>
+                    <td>@banco.NoSucursales</td>
+                    <td>@banco.Pais.IdPais</td>
+                    <td>@banco.Capital</td>
+                    <td>@banco.RazonSocial.IdRazonSocial</td>
+                    <td>@banco.NoClientes</td>
+                </tr>
+                }
+        </tbody>
+
+    </table>
+}
